@@ -1,0 +1,26 @@
+<navbar></navbar>
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>Team</h1>
+    <p class="lead">We spend our days phishing</p>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="member in teamMembers">
+        <li><h2>{{member.name}}</h2> <div><p class="team">{{member.about}}</div></p></li>
+      </ul>
+    </div>
+  </div>
+
+<footer></footer>
+<!-- 
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>The fish data you need</h1>
+    <p class="lead">Historical artisinal fishing data analysis</p>
+  </div>
+</header> -->

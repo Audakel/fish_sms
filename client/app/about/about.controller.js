@@ -1,11 +1,9 @@
 'use strict';
 (function() {
 
-function MainController($scope, $http, socket) {
+function AboutController($scope, $http, socket) {
   var self = this; 
   this.awesomeThings = [];
-
-
 
   $http.get('/api/things').then(function(response) {
     self.awesomeThings = response.data;
@@ -30,6 +28,6 @@ function MainController($scope, $http, socket) {
 }
 
 angular.module('smsAppApp')
-  .controller('MainController', MainController);
+  .controller('AboutController', AboutController);
 
 })();
