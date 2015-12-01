@@ -1,7 +1,6 @@
 # SMS Fishing 
 Rural coastal peruvian fishing app. it supports 5  types of fish - barracuda, bass, flounder, tuna,  mojarra. there are 2 types of users - buyers and sellers. buyers can post how many of a type of fish they want at a certain price. sellers can post how many fish they have and at what price they want to sell. people can also text just a fish name to get price info about it. they can also text 'today' to get a recommendation.
 
-This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.0.0-rc8.
 
 ## Getting Started
 
