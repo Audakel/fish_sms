@@ -2,6 +2,20 @@
   margin: 20px 0;
 }
 
+[animate-on-change] {
+  transition: all 1s;
+  -webkit-transition: all 1s;
+}
+[animate-on-change].changed {
+    background-color: red;
+    transition: none;
+    -webkit-transition: none;
+}
+
+.carddemoBasicUsage .card-media {
+  background-color: #999999; 
+}
+
 #banner {
   border-bottom: none;
   margin-top: -20px;
@@ -24,4 +38,8 @@
 
 .navbar-text {
   margin-left: 15px;
+}
+
+.fish-price {
+  paddint-top: 10%;
 }

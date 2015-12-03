@@ -7,27 +7,65 @@
     <img src="assets/images/yeoman.png" height="100" alt="I'm a fish">
   </div>
 </header>
+<!-- 
+<div flex="50" layout="column">
+<md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Card with image</span>
+            <span class="md-subhead">Large</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media"></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+</md-card>
+</div> -->
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings">
-        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}<button type="button" class="close" ng-click="main.deleteThing(thing)">&times;</button></a></li>
+<div class="container" >
+<h2>Usage: (buy|sell) (a number) (type of fish) @(a price) ex: 'buy 3 catfish @3'</h2>
+<h3>Text 480-359-1947</h3>
+  <div class="row" id="fish-price">
+    <div class="col-lg-12" margin-top="20px">
+      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="f in fish">
+        <li>
+           <img ng-src="{{f.pic}}" height="100" alt="I'm audakel">
+          <h2>{{f.name}}</h2>
+
+
+           <div><p class="team"><strong>Needed:</strong>
+           <span animate-on-change='calculateTotal(main.awesomeThings,f.name,"needed")'> 
+           {{calculateTotal(main.awesomeThings,f.name,"needed")}}</span>   
+           </div></p>
+           <div><p class="team"><strong>Buy:</strong> 
+           <span animate-on-change='calculateTotal(main.awesomeThings,f.name,"buy")'>
+           {{calculateTotal(main.awesomeThings,f.name,"buy") | currency}}</span>   
+           </div></p>
+           <div><p class="team"><strong>Sell:</strong> 
+           <span animate-on-change='calculateTotal(main.awesomeThings,f.name,"sell")'>
+           {{calculateTotal(main.awesomeThings,f.name,"sell") | currency}}</span>   
+           </div></p>
+         </li>
       </ul>
     </div>
   </div>
 
-  <form class="thing-form">
-    <label>Syncs in realtime across clients</label>
-    <p class="input-group">
-      <input type="text" class="form-control" placeholder="Add a new thing here." ng-model="main.newThing">
-      <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary" ng-click="main.addThing()">Add New</button>
-      </span>
-    </p>
-  </form>
-</div>
+
+  <div class="container" >
+  <div class="row">
+    <div class="col-lg-12" margin-top="20px">
+      <h2>History</h2>
+      <ul class="nav nav-tabs nav-stacked  " ng-repeat="thing in main.awesomeThings |orderBy: 'date':true | limitTo:10">
+        <li>
+           <div><p class="team">{{thing.number}} is {{thing.buysell}}ing {{thing.quantity}} {{thing.fish}}</div></p>
+         </li>
+      </ul>
+    </div>
+  </div>
 
 <footer></footer>
 <!-- 
@@ -36,4 +74,8 @@
     <h1>The fish data you need</h1>
     <p class="lead">Historical artisinal fishing data analysis</p>
   </div>
-</header> -->
+</header> 
+
+
+
+-->
