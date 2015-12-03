@@ -27,6 +27,8 @@
 </div> -->
 
 <div class="container" >
+<h2>Usage: (buy|sell) (a number) (type of fish) @(a price) ex: 'buy 3 catfish @3'</h2>
+<h3>Text 480-359-1947</h3>
   <div class="row" id="fish-price">
     <div class="col-lg-12" margin-top="20px">
       <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="f in fish">
@@ -34,9 +36,19 @@
            <img ng-src="{{f.pic}}" height="100" alt="I'm audakel">
           <h2>{{f.name}}</h2>
 
-           <div><p class="team"><strong>Needed:</strong> {{calculateTotal(main.awesomeThings,f.name,"needed")}}</div></p>
-           <div><p class="team"><strong>Buy:</strong> {{calculateTotal(main.awesomeThings,f.name,"buy") | currency}}</div></p>
-           <div><p class="team"><strong>Sell:</strong> {{calculateTotal(main.awesomeThings,f.name,"sell") | currency}}</div></p>
+
+           <div><p class="team"><strong>Needed:</strong>
+           <span animate-on-change='calculateTotal(main.awesomeThings,f.name,"needed")'> 
+           {{calculateTotal(main.awesomeThings,f.name,"needed")}}</span>   
+           </div></p>
+           <div><p class="team"><strong>Buy:</strong> 
+           <span animate-on-change='calculateTotal(main.awesomeThings,f.name,"buy")'>
+           {{calculateTotal(main.awesomeThings,f.name,"buy") | currency}}</span>   
+           </div></p>
+           <div><p class="team"><strong>Sell:</strong> 
+           <span animate-on-change='calculateTotal(main.awesomeThings,f.name,"sell")'>
+           {{calculateTotal(main.awesomeThings,f.name,"sell") | currency}}</span>   
+           </div></p>
          </li>
       </ul>
     </div>
