@@ -52,24 +52,23 @@ function MainController($scope, $http, $filter, socket) {
   }
 
 
+
+
   $scope.fish = [{
-      name: 'catfish',
+      name: 'bass',
       buy: 45,
       sell: 43,
       amount: 2,
       pic: "assets/images/tuna.png"
     }, {
-      name: 'frog',
+      name: 'mojarra',
       buy: 25,
       sell: 29,
       amount: 5,
       pic: "assets/images/bass.png"
 
     }, {
-      name: 'rats',
-      buy: 15,
-      sell: 17,
-      amount: 7,
+      name: 'flounder',
       pic: "assets/images/beta.png"
 
   }]; 
