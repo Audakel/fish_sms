@@ -25,9 +25,9 @@ function PriceController($scope, $http, socket) {
   $scope.$on('$destroy', function() {
     socket.unsyncUpdates('thing');
   });
-  
+
   // begin d3
-  
+
 }
 
 angular.module('smsAppApp')
@@ -43,7 +43,7 @@ angular.module('smsAppApp')
       height = 500 - margin.top - margin.bottom;
 
     var parse = d3.time.format('%Y-%m-%d').parse;
-    
+
     var getMaxValues = function(array) {
       var values = {
         minPrice: array[0].price,
@@ -75,48 +75,50 @@ angular.module('smsAppApp')
         grouped: '='
       },
       link: function(scope, element, attrs) {
-        console.log("I'm here");
         var svg = d3.select(element[0]).append("svg")
           .attr("width", width + margin.left + margin.right)
           .attr("height", height + margin.top + margin.bottom)
           .append("g")
-          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-         
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+          .style("font-family", "inherit")
+          .style("font-size", "16px");
+
         d3.json("./data.json", function(error, data) {
+          console.log(data);
           if(error) throw error;
-          
+
           var typesArray = [
             {
-              type: "baracuda",
-              color: "blue",
+              type: "flounder",
+              color: "#00ADFF",
               values: []
             },
             {
-              type: "tuna",
-              color: "red",
+              type: "mojarra",
+              color: "#FF1935",
               values: []
             },
             {
               type: "bass",
-              color: "green",
+              color: "#CCC514",
               values: []
             }
           ];
-          
+
           data.lineChart.forEach(function(d) {
             d.date = parse(d.date);
             d.price = d.price;
-            if(d.type == "baracuda") {
+            if(d.type == "flounder") {
               typesArray[0].values.push(d);
             }
-            else if(d.type == "tuna") {
+            else if(d.type == "mojarra") {
               typesArray[1].values.push(d);
             }
             else if(d.type == "bass") {
               typesArray[2].values.push(d);
             }
           });
-          
+
           data.lineChart.sort(function(a, b) {
             if(a.date < b.date) {
               return -1;
@@ -126,42 +128,42 @@ angular.module('smsAppApp')
             }
             return 0;
           });
-          
+
           var maxValues = getMaxValues(data.lineChart);
-          
+
           var xScale = d3.scale.linear().range([margin.left, width - margin.right]).domain([maxValues.minDate, maxValues.maxDate]);
-          var yScale = d3.scale.linear().range([height - margin.top, margin.bottom]).domain([maxValues.minPrice, maxValues.maxPrice]);
-          
+          var yScale = d3.scale.linear().range([height - margin.top, margin.bottom]).domain([0, maxValues.maxPrice]);
+
           var xAxis = d3.svg.axis()
             .scale(xScale)
             .orient("bottom")
             //.tickValues(d3.time.month.range(new Date(maxValues.minDate), new Date(maxValues.maxDate)), 1)
-            .tickFormat(function(d) { return d3.time.format("%Y-%m-%d")(new Date(d)); });
-            
+            .tickFormat(function(d) { return d3.time.format("%m-%d")(new Date(d)); });
+
           var yAxis = d3.svg.axis()
             .scale(yScale)
             .orient("left");
-        
+
           var line = d3.svg.line()
             .x(function(d) { return xScale(d.date); })
             .y(function(d) { return yScale(d.price); })
-            .interpolate("basis");
-          
+            .interpolate("linear");
+
           svg.append("g")
             .attr("class", "x axis")
-            .attr("transform", "translate(0," + (height - margin.bottom) + ")")
+            .attr("transform", "translate(0," + (height - margin.bottom + 10) + ")")
             .call(xAxis);
-            
+
           svg.append("text")
             .attr("transform", "translate(" + (width / 2) + " ," + (height + margin.bottom) + ")")
             .style("text-anchor", "middle")
             .text("Date");
-            
+
           svg.append("g")
             .attr("class", "y axis")
             .attr("transform", "translate(" + margin.left + ",0)")
             .call(yAxis);
-            
+
           svg.append("text")
             .attr("transform", "rotate(-90)")
             .attr("y", 0 - margin.left)
@@ -169,17 +171,38 @@ angular.module('smsAppApp')
             .attr("dy", "1em")
             .style("text-anchor", "middle")
             .text("Price $");
-            
+
+
+          var count = 0;
           typesArray.forEach(function(singleType) {
             svg.append("path")
               .attr("d", line(singleType.values))
               .attr("stroke", singleType.color)
               .attr("stroke-width", 2)
               .attr("fill", "none");
+            svg.append("text")
+              .attr("transform", "translate(" + count + "," + 5 + ")")
+              .attr("stroke", singleType.color)
+              .text(singleType.type);
+            count += 100;
           });
+
+          /*legend = svg.append("g")
+            .attr("class", "legend")
+            .attr("transform","translate(50,30)")
+            .style("font-size","16px")
+            .call(d3.legend);
+
+          setTimeout(function() {
+            legend
+              .style("font-size", "20px")
+              .attr("data-style-padding", 10)
+              .call(d3.legend)
+            },1000)
+          });*/
         });
         scope.$watch('exp', function (newVal, oldVal) {
-          
+
         });
       }
     };

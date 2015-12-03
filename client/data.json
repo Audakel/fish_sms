@@ -1,0 +1,79 @@
+{
+  "lineChart": [
+    {
+      "date": "2015-11-2",
+      "type": "flounder",
+      "price": 52
+    },
+    {
+      "date": "2015-11-15",
+      "type": "flounder",
+      "price": 53
+    },
+    {
+      "date": "2015-11-24",
+      "type": "flounder",
+      "price": 48
+    },
+    {
+      "date": "2015-11-30",
+      "type": "flounder",
+      "price": 50
+    },
+    {
+      "date": "2015-12-16",
+      "type": "flounder",
+      "price": 57
+    },
+    {
+      "date": "2015-11-2",
+      "type": "bass",
+      "price": 30
+    },
+    {
+      "date": "2015-11-15",
+      "type": "bass",
+      "price": 27
+    },
+    {
+      "date": "2015-11-24",
+      "type": "bass",
+      "price": 24
+    },
+    {
+      "date": "2015-11-30",
+      "type": "bass",
+      "price": 23
+    },
+    {
+      "date": "2015-12-16",
+      "type": "bass",
+      "price": 25
+    },
+    {
+      "date": "2015-11-2",
+      "type": "mojarra",
+      "price": 50
+    },
+    {
+      "date": "2015-11-23",
+      "type": "mojarra",
+      "price": 65
+    },
+    {
+      "date": "2015-11-24",
+      "type": "mojarra",
+      "price": 70
+    },
+    {
+      "date": "2015-11-25",
+      "type": "mojarra",
+      "price": 75
+    },
+    {
+      "date": "2015-12-16",
+      "type": "mojarra",
+      "price": 55
+    }
+  ]
+}
