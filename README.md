@@ -1,4 +1,14 @@
 # SMS Fishing 
+The project builds on a pilot project that was undertaken in 2006 to
+develop the use of SMS technology to enhance communication in agricultural
+value chains in Cambodia. The project worked closely with farmers, traders,
+silo managers and Ministry of Commerce officials to develop an electronic
+marketing communication system (EMCS) based on text messaging. The
+EMCS demonstrated a successful proof-of-concept and showed SMS as a
+robust and cost-effective technology. Future projects will explore the wider
+scale implementation of this SMS system in Cambodia and address the broader
+issues of cost, training and user literacy levels. 
+
 Rural coastal peruvian fishing app. it supports 5  types of fish - barracuda, bass, flounder, tuna,  mojarra. there are 2 types of users - buyers and sellers. buyers can post how many of a type of fish they want at a certain price. sellers can post how many fish they have and at what price they want to sell. people can also text just a fish name to get price info about it. they can also text 'today' to get a recommendation.
 
 
